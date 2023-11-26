@@ -1,25 +1,21 @@
 Name:     wdisplays
 Version:  1.1.1
-Release:  2%{?dist}
+Release:  1
 Summary:  GUI display configurator for wlroots compositors
 License:  GPLv3+
 URL:      https://github.com/artizirk/wdisplays
- 
 Source:  %{url}/archive/%{version}/%{name}-%{version}.tar.gz
  
 BuildRequires: desktop-file-utils
-BuildRequires: gcc
-BuildRequires: gtk3-devel
-BuildRequires: libepoxy-devel
+BuildRequires: pkgconfig(gtk+-3.0)
+BuildRequires: pkgconfig(epoxy)
 BuildRequires: meson
-BuildRequires: wayland-devel
-BuildRequires: wayland-protocols-devel
- 
-Conflicts: wlroots < 0.7.0
+BuildRequires: pkgconfig(wayland-client)
+BuildRequires: pkgconfig(wayland-protocols)
+
 Requires:  hicolor-icon-theme
  
 %description
- 
 wdisplays is a graphical application for configuring displays in
 Wayland compositors. It borrows some code from kanshi. It should work
 in any compositor that implements the
@@ -33,8 +29,10 @@ kiosks, digital signage, and other elaborate multi-monitor setups.
 %build
 %meson
 %meson_build
+
 %install
 %meson_install
+
 find %{buildroot}
  
 desktop-file-install --dir %{buildroot}/%{_datadir}/applications \
@@ -48,7 +46,5 @@ desktop-file-install --dir %{buildroot}/%{_datadir}/applications \
 %{_bindir}/%{name}
 %{_datadir}/applications/*
 %{_datadir}/icons/*
- 
 %doc README.md
- 
 %license LICENSES/*
