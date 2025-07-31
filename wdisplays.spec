@@ -1,5 +1,5 @@
 Name:     wdisplays
-Version:  1.1.1
+Version:  1.1.3
 Release:  1
 Summary:  GUI display configurator for wlroots compositors
 License:  GPLv3+
