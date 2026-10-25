@@ -45,6 +45,7 @@ desktop-file-install --dir %{buildroot}/%{_datadir}/applications \
 %files
 %{_bindir}/%{name}
 %{_datadir}/applications/*
+%{_datadir}/glib-2.0/schemas/network.cycles.wdisplays.gschema.xml
 %{_datadir}/icons/*
 %doc README.md
 %license LICENSES/*
